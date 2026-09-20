@@ -40,13 +40,13 @@
   .footer-col a:hover { text-decoration: underline; }
 
   /* Hero */
-  .hero-eyebrow { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: #66b4a1; margin-bottom: 18px; }
+  .hero-eyebrow { font-size: 14px; font-weight: 600; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 28px; }
   .hero-title { margin: 0; line-height: 1.08; font-size: 52px; font-family: "Avenir Next P for BBG", "Avenir Next", Avenir, -apple-system, "system-ui", "Segoe UI", Helvetica, Arial, sans-serif; }
   .hero-title .line-bold { display: block; font-weight: 600; }
   .hero-title .line-light { display: block; font-weight: 400; }
 
   /* Agenda — matches market-partner-sites.github.io/bnef-summit-london-2026 */
-  .agenda-eyebrow { font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4bae87; margin-bottom: 10px; }
+  .agenda-eyebrow { font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
   .track-filters { display: flex; gap: 10px; flex-wrap: wrap; margin: 22px 0 6px 0; }
   .pill-filter { border-radius: 100px; padding: 6px 14px; font-size: 12px; font-weight: 600; border: 1px solid #dcded9; background: #ffffff; color: #151a26; }
   .pill-filter.is-active { background: #151a26; color: #ffffff; border-color: #151a26; }
@@ -55,14 +55,14 @@
   .agenda-row__break { flex: 1 1 0%; font-size: 17px; font-weight: 600; color: #151a26; display: flex; align-items: center; }
   .agenda-card { flex: 1 1 0%; border: 1px solid #e4e3de; border-radius: 6px; padding: 20px 24px; background: #ffffff; }
   .agenda-tag { display: inline-block; background: #eceef1; color: #151a26; font-size: 11.5px; font-weight: 600; padding: 5px 12px; border-radius: 100px; margin-bottom: 12px; }
-  .agenda-title { font-size: 18px; font-weight: 700; margin: 0 0 10px 0; color: #151a26; }
+  .agenda-title { font-size: 18px; font-weight: 600; margin: 0 0 10px 0; color: #151a26; }
   .agenda-desc { font-size: 14.5px; line-height: 1.65; color: #4b5563; margin: 0 0 14px 0; }
   .agenda-desc.clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
   .agenda-mod { font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6b7280; margin: 4px 0 10px 0; }
   .speakers-label { font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6b7280; margin-bottom: 10px; }
   .speaker-chip { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-  .speaker-avatar { width: 34px; height: 34px; border-radius: 999px; background: #e6f2ec; color: #005c41; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; object-fit: cover; }
-  .speaker-name { font-size: 14px; font-weight: 700; color: #005c41; }
+  .speaker-avatar { width: 34px; height: 34px; border-radius: 999px; background: #e8edfc; color: var(--accent); font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; object-fit: cover; }
+  .speaker-name { font-size: 14px; font-weight: 700; color: var(--accent); }
   .speaker-role { font-size: 13px; color: #6b7280; }
 
   /* Speaker credits/cards that open the bio modal on click */
@@ -75,9 +75,9 @@
 
   /* Speakers grid — matches market-partner-sites.github.io/bnef-summit-london-2026#speakers */
   .speaker-card { display: flex; flex-direction: column; gap: 12px; }
-  .speaker-card__avatar { width: 100%; aspect-ratio: 1; border-radius: 14px; object-fit: cover; background: #e6f2ec; display: block; }
-  .speaker-card__avatar.is-initials { display: flex; align-items: center; justify-content: center; color: #005c41; font-size: 42px; font-weight: 700; }
-  .speaker-card__name { font-size: 15px; font-weight: 600; color: #151a26; }
+  .speaker-card__avatar { width: 100%; aspect-ratio: 1; border-radius: 14px; object-fit: cover; background: #e8edfc; display: block; }
+  .speaker-card__avatar.is-initials { display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 42px; font-weight: 700; }
+  .speaker-card__name { font-size: 15px; font-weight: 700; color: #151a26; }
   .speaker-card__role { font-size: 12.5px; color: #6b7280; }
 
   /* Speaker bio modal */
@@ -88,7 +88,7 @@
   .speaker-modal__dialog { position: relative; z-index: 1; background: #ffffff; border-radius: 14px; padding: 40px; max-width: 480px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.18); display: flex; flex-direction: column; gap: 4px; }
   .speaker-modal__close { position: absolute; top: 16px; right: 16px; width: 32px; height: 32px; border-radius: 50%; border: none; background: #f2f3f5; color: #6b7280; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 16px; line-height: 1; }
   .speaker-modal__close:hover { background: #e4e3de; color: #151a26; }
-  .speaker-modal__photo { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; background: #e6f2ec; margin-bottom: 16px; }
+  .speaker-modal__photo { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; background: #e8edfc; margin-bottom: 16px; }
   .speaker-modal__name { font-size: 22px; font-weight: 700; color: #151a26; }
   .speaker-modal__role { font-size: 14px; color: #6b7280; margin-bottom: 18px; }
   .speaker-modal__bio { font-size: 14.5px; line-height: 1.7; color: #4b5563; }
@@ -98,7 +98,7 @@
   .venue-card { border: 1px solid #eceef1; border-radius: 14px; padding: 26px; background: #f7f8fa; }
 
   @media (max-width: 860px) {
-    .hero-flex { flex-direction: column !important; }
+    .hero-flex { flex-direction: column !important; align-items: flex-start !important; }
     .hero-photo { display: none !important; }
     .footer-grid { grid-template-columns: repeat(2, 1fr) !important; }
     .desktop-nav { display: none !important; }
@@ -107,7 +107,7 @@
     .util-bar { display: none !important; }
     .hero-title { font-size: 32px !important; }
     .container-1248 { padding-left: 16px !important; padding-right: 16px !important; }
-    .agenda-row { flex-direction: column !important; gap: 6px !important; }
+    .agenda-row { flex-direction: column !important; gap: 14px !important; }
     .agenda-time { font-weight: 600 !important; }
     .theme-flex { flex-direction: column !important; }
     #speakers-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 18px !important; }
@@ -306,11 +306,10 @@
   </div>
 
   <!-- Agenda -->
-  <div id="agenda" style="width: 100%; background: #f7f8fa; border-top: 1px solid #eceef1; padding: 56px 0 64px; scroll-margin-top: 20px;">
+  <div id="agenda" style="width: 100%; background: #ffffff; border-top: 1px solid #eceef1; padding: 56px 0 64px; scroll-margin-top: 20px;">
     <div class="container-1248" style="max-width: 1248px; margin: 0 auto; padding: 0 30px;">
       <div class="agenda-eyebrow">1 Day Event</div>
-      <h2 style="font-size: 32px; font-weight: 700; margin: 0 0 4px 0; color: #151a26;">Agenda</h2>
-      <div style="font-size: 15px; color: #6b7280;">October 12, 2026</div>
+      <h2 style="font-size: 36px; font-weight: 600; margin: 0 0 20px 0; color: #151a26;">Agenda</h2>
 
       <div class="track-filters" id="track-filters">
         <!-- populated by the agenda script near the end of this file, built
@@ -329,8 +328,7 @@
   <!-- Speakers -->
   <div id="speakers" style="width: 100%; background: #ffffff; padding: 56px 0 64px; scroll-margin-top: 20px;">
     <div class="container-1248" style="max-width: 1248px; margin: 0 auto; padding: 0 30px;">
-      <h2 style="font-size: 26px; font-weight: 600; margin: 0 0 8px 0;">Speakers</h2>
-      <p style="font-size: 15px; color: #6b7280; margin: 0 0 12px 0; max-width: 640px;">BloombergNEF Forum speakers include influential leaders across energy, finance, technology and government shaping the region's energy transition.</p>
+      <h2 style="font-size: 36px; font-weight: 600; margin: 0 0 16px 0;">Speakers</h2>
       <p id="speakers-status" style="font-size: 14px; color: #6b7280; margin: 0 0 18px 0;">Loading speakers…</p>
       <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px;" id="speakers-grid">
         <!-- populated by the agenda script near the end of this file, from
@@ -340,9 +338,9 @@
   </div>
 
   <!-- Venue -->
-  <div id="venue" style="width: 100%; background: #f7f8fa; border-top: 1px solid #eceef1; padding: 56px 0 64px; scroll-margin-top: 20px;">
+  <div id="venue" style="width: 100%; background: #ffffff; border-top: 1px solid #eceef1; padding: 56px 0 64px; scroll-margin-top: 20px;">
     <div class="container-1248" style="max-width: 1248px; margin: 0 auto; padding: 0 30px;">
-      <h2 style="font-size: 26px; font-weight: 600; margin: 0 0 26px 0;">Venue</h2>
+      <h2 style="font-size: 36px; font-weight: 600; margin: 0 0 26px 0;">Venue</h2>
       <div class="venue-card" style="max-width: 480px;">
         <div style="font-size: 17px; font-weight: 600; margin-bottom: 10px;">Abu Dhabi Edition</div>
         <div style="font-size: 15px; color: #4b5563; line-height: 1.7;">
@@ -350,7 +348,6 @@
           PO Box 127799<br>
           Abu Dhabi, 100000
         </div>
-        <a class="btn-outline" style="margin-top: 18px;" href="https://www.google.com/maps/search/?api=1&query=Abu+Dhabi+Edition+Al+Bateen+Marina" target="_blank" rel="noopener noreferrer">Get directions</a>
       </div>
     </div>
   </div>
@@ -564,21 +561,39 @@
     return hour + ':' + mins + ' ' + ampm;
   }
 
+  // The Abu Dhabi agenda API doesn't populate `tags` on any session (unlike
+  // Summit London's, which is where the label:X / sessionType:break tag
+  // convention below comes from). When tags are present we trust them;
+  // when they're empty we fall back to reading the same signal off the
+  // session's own name, which is how the real agenda already distinguishes
+  // breaks from sessions in its titles ("Networking Break", "Registration
+  // & Networking Lunch", "Networking Reception").
   function isBreakLike(session) {
     var tags = session.tags || [];
-    return tags.indexOf('label:Networking') !== -1 || tags.indexOf('sessionType:break') !== -1;
+    if (tags.length) {
+      return tags.indexOf('label:Networking') !== -1 || tags.indexOf('sessionType:break') !== -1;
+    }
+    return /networking|reception|registration.*lunch/i.test(session.name || '');
   }
 
   // A session's first "label:X" tag becomes both its badge text and its
   // filter-pill slug — e.g. "label:Main stage" -> badge "Main stage",
-  // filter slug "main-stage". No such tag -> a generic "Session" badge
-  // with no filter slug (only ever hidden by "All sessions" itself).
+  // filter slug "main-stage". When no tags are present (see isBreakLike's
+  // comment above), the same badge is read off the session's own title
+  // instead, since the real titles already carry it: a "Panel: ..." title
+  // is a panel, a title containing "Talk:" is a talk, and anything else
+  // that isn't break-like is presented on the main stage.
   function sessionLabel(session) {
     var tags = session.tags || [];
     for (var i = 0; i < tags.length; i++) {
       if (tags[i].indexOf('label:') === 0) return tags[i].slice(6);
     }
-    return '';
+    if (tags.length) return '';
+
+    var name = session.name || '';
+    if (/^panel:/i.test(name)) return 'Panel';
+    if (/talk:/i.test(name)) return 'Talk';
+    return 'Main stage';
   }
 
   function slugify(str) {
@@ -592,8 +607,27 @@
       company: p.company || '',
       jobTitle: p.job_title || '',
       photo: (p.profile_picture && p.profile_picture.absoluteUrl) || '',
-      bioHtml: (p.bio && p.bio.html) || ''
+      bioHtml: bioHtmlFrom(p.bio)
     };
+  }
+
+  function escapeHtml(str) {
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  // The bio field comes back as a plain string with blank-line-separated
+  // paragraphs (no markup) rather than Summit's { html: "..." } shape, so
+  // this handles both: a plain string is escaped and wrapped into <p>
+  // tags itself; an { html } object (if this event's API ever changes to
+  // match Summit's) is used as-is.
+  function bioHtmlFrom(bio) {
+    if (!bio) return '';
+    if (typeof bio === 'string') {
+      return bio.split(/\n\s*\n/).map(function (para) {
+        return '<p>' + escapeHtml(para.trim()).replace(/\n/g, '<br>') + '</p>';
+      }).join('');
+    }
+    return bio.html || '';
   }
 
   function initials(name) {
@@ -768,7 +802,7 @@
     row.appendChild(time);
 
     var card = el('div', 'agenda-card');
-    card.appendChild(text('span', 'agenda-tag', label || 'Session'));
+    if (label) card.appendChild(text('span', 'agenda-tag', label));
     card.appendChild(text('div', 'agenda-title', (session.name || '').trim()));
     var synopsis = (session.synopsisMd || '').trim();
     if (synopsis) card.appendChild(text('p', 'agenda-desc clamp-2', synopsis));
@@ -798,13 +832,12 @@
     renderFilters(labelsSeen);
   }
 
+  // No "All sessions" pill — every row shows by default. Clicking a
+  // category pill filters down to it; clicking the same (now active)
+  // pill again clears the filter and shows everything again.
   function renderFilters(labels) {
     var wrap = document.getElementById('track-filters');
     wrap.innerHTML = '';
-    var allBtn = text('button', 'pill-filter is-active', 'All sessions');
-    allBtn.type = 'button';
-    allBtn.setAttribute('data-filter', 'all');
-    wrap.appendChild(allBtn);
     labels.forEach(function (label) {
       var btn = text('button', 'pill-filter', label);
       btn.type = 'button';
@@ -817,9 +850,13 @@
   function wireFilters() {
     document.querySelectorAll('.pill-filter').forEach(function (btn) {
       btn.addEventListener('click', function () {
+        var alreadyActive = btn.classList.contains('is-active');
         document.querySelectorAll('.pill-filter').forEach(function (b) { b.classList.remove('is-active'); });
-        btn.classList.add('is-active');
-        var filter = btn.getAttribute('data-filter');
+        var filter = 'all';
+        if (!alreadyActive) {
+          btn.classList.add('is-active');
+          filter = btn.getAttribute('data-filter');
+        }
         document.querySelectorAll('.agenda-row').forEach(function (row) {
           var track = row.getAttribute('data-track');
           row.style.display = (filter === 'all' || !track || track === filter) ? '' : 'none';
