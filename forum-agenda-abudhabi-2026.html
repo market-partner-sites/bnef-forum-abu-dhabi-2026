@@ -46,15 +46,10 @@
   .hero-title .line-light { display: block; font-weight: 400; }
 
   /* Agenda — matches market-partner-sites.github.io/bnef-summit-london-2026 */
-  .agenda-eyebrow { font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
-  .track-filters { display: flex; gap: 10px; flex-wrap: wrap; margin: 22px 0 6px 0; }
-  .pill-filter { border-radius: 100px; padding: 6px 14px; font-size: 12px; font-weight: 600; border: 1px solid #dcded9; background: #ffffff; color: #151a26; }
-  .pill-filter.is-active { background: #151a26; color: #ffffff; border-color: #151a26; }
   .agenda-row { display: flex; gap: 28px; padding: 22px 0; border-top: 1px solid #dcded9; }
   .agenda-time { flex: 0 0 96px; font-size: 16px; color: #151a26; }
   .agenda-row__break { flex: 1 1 0%; font-size: 17px; font-weight: 600; color: #151a26; display: flex; align-items: center; }
-  .agenda-card { flex: 1 1 0%; border: 1px solid #e4e3de; border-radius: 6px; padding: 20px 24px; background: #ffffff; }
-  .agenda-tag { display: inline-block; background: #eceef1; color: #151a26; font-size: 11.5px; font-weight: 600; padding: 5px 12px; border-radius: 100px; margin-bottom: 12px; }
+  .agenda-card { flex: 1 1 0%; border: 1px solid #e4e3de; border-radius: 6px; padding: 20px 24px; background: #fafafa; }
   .agenda-title { font-size: 18px; font-weight: 600; margin: 0 0 10px 0; color: #151a26; }
   .agenda-desc { font-size: 14.5px; line-height: 1.65; color: #4b5563; margin: 0 0 14px 0; }
   .agenda-desc.clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
@@ -74,11 +69,12 @@
   .is-clickable:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 
   /* Speakers grid — matches market-partner-sites.github.io/bnef-summit-london-2026#speakers */
-  .speaker-card { display: flex; flex-direction: column; gap: 12px; }
+  .speaker-card { display: flex; flex-direction: column; gap: 14px; }
   .speaker-card__avatar { width: 100%; aspect-ratio: 1; border-radius: 14px; object-fit: cover; background: #e8edfc; display: block; }
   .speaker-card__avatar.is-initials { display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 42px; font-weight: 700; }
-  .speaker-card__name { font-size: 15px; font-weight: 700; color: #151a26; }
-  .speaker-card__role { font-size: 12.5px; color: #6b7280; }
+  .speaker-card__meta { display: block; }
+  .speaker-card__name { font-size: 15px; font-weight: 700; color: #151a26; line-height: 22.5px; margin-bottom: 0; }
+  .speaker-card__role { font-size: 12.5px; font-weight: 400; color: #505561; line-height: 18.75px; margin-top: 0; }
 
   /* Speaker bio modal */
   body.modal-open { overflow: hidden; }
@@ -105,7 +101,7 @@
     .desktop-actions { display: none !important; }
     .mobile-controls { display: flex !important; }
     .util-bar { display: none !important; }
-    .hero-title { font-size: 32px !important; }
+    .hero-title { font-size: 35px !important; }
     .container-1248 { padding-left: 16px !important; padding-right: 16px !important; }
     .agenda-row { flex-direction: column !important; gap: 14px !important; }
     .agenda-time { font-weight: 600 !important; }
@@ -308,13 +304,7 @@
   <!-- Agenda -->
   <div id="agenda" style="width: 100%; background: #ffffff; border-top: 1px solid #eceef1; padding: 56px 0 64px; scroll-margin-top: 20px;">
     <div class="container-1248" style="max-width: 1248px; margin: 0 auto; padding: 0 30px;">
-      <div class="agenda-eyebrow">1 Day Event</div>
       <h2 style="font-size: 36px; font-weight: 600; margin: 0 0 20px 0; color: #151a26;">Agenda</h2>
-
-      <div class="track-filters" id="track-filters">
-        <!-- populated by the agenda script near the end of this file, built
-             from the tags on the live sessions themselves -->
-      </div>
 
       <p id="agenda-status" style="font-size: 14px; color: #6b7280; margin: 6px 0 0 0;">Loading agenda…</p>
 
@@ -576,30 +566,6 @@
     return /networking|reception|registration.*lunch/i.test(session.name || '');
   }
 
-  // A session's first "label:X" tag becomes both its badge text and its
-  // filter-pill slug — e.g. "label:Main stage" -> badge "Main stage",
-  // filter slug "main-stage". When no tags are present (see isBreakLike's
-  // comment above), the same badge is read off the session's own title
-  // instead, since the real titles already carry it: a "Panel: ..." title
-  // is a panel, a title containing "Talk:" is a talk, and anything else
-  // that isn't break-like is presented on the main stage.
-  function sessionLabel(session) {
-    var tags = session.tags || [];
-    for (var i = 0; i < tags.length; i++) {
-      if (tags[i].indexOf('label:') === 0) return tags[i].slice(6);
-    }
-    if (tags.length) return '';
-
-    var name = session.name || '';
-    if (/^panel:/i.test(name)) return 'Panel';
-    if (/talk:/i.test(name)) return 'Talk';
-    return 'Main stage';
-  }
-
-  function slugify(str) {
-    return str.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-  }
-
   function personFromRegistration(reg) {
     var p = (reg && reg.profile) || {};
     return {
@@ -794,15 +760,11 @@
       return row;
     }
 
-    var label = sessionLabel(session);
-    if (label) row.setAttribute('data-track', slugify(label));
-
     var time = el('div', 'agenda-time');
     time.innerHTML = fmtTime(session.localStart) + (session.localEnd && session.localEnd !== session.localStart ? '<br>– ' + fmtTime(session.localEnd) : '');
     row.appendChild(time);
 
     var card = el('div', 'agenda-card');
-    if (label) card.appendChild(text('span', 'agenda-tag', label));
     card.appendChild(text('div', 'agenda-title', (session.name || '').trim()));
     var synopsis = (session.synopsisMd || '').trim();
     if (synopsis) card.appendChild(text('p', 'agenda-desc clamp-2', synopsis));
@@ -820,48 +782,8 @@
 
     var list = document.getElementById('agenda-list');
     list.innerHTML = '';
-    var labelsSeen = [];
     items.forEach(function (session) {
-      if (!isBreakLike(session)) {
-        var label = sessionLabel(session);
-        if (label && labelsSeen.indexOf(label) === -1) labelsSeen.push(label);
-      }
       list.appendChild(buildAgendaRow(session, creditsIndex));
-    });
-
-    renderFilters(labelsSeen);
-  }
-
-  // No "All sessions" pill — every row shows by default. Clicking a
-  // category pill filters down to it; clicking the same (now active)
-  // pill again clears the filter and shows everything again.
-  function renderFilters(labels) {
-    var wrap = document.getElementById('track-filters');
-    wrap.innerHTML = '';
-    labels.forEach(function (label) {
-      var btn = text('button', 'pill-filter', label);
-      btn.type = 'button';
-      btn.setAttribute('data-filter', slugify(label));
-      wrap.appendChild(btn);
-    });
-    wireFilters();
-  }
-
-  function wireFilters() {
-    document.querySelectorAll('.pill-filter').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var alreadyActive = btn.classList.contains('is-active');
-        document.querySelectorAll('.pill-filter').forEach(function (b) { b.classList.remove('is-active'); });
-        var filter = 'all';
-        if (!alreadyActive) {
-          btn.classList.add('is-active');
-          filter = btn.getAttribute('data-filter');
-        }
-        document.querySelectorAll('.agenda-row').forEach(function (row) {
-          var track = row.getAttribute('data-track');
-          row.style.display = (filter === 'all' || !track || track === filter) ? '' : 'none';
-        });
-      });
     });
   }
 
@@ -871,9 +793,11 @@
     var person = personFromRegistration(reg);
     var card = el('div', 'speaker-card');
     card.appendChild(buildAvatar(person, 'speaker-card__avatar'));
-    card.appendChild(text('div', 'speaker-card__name', person.name));
+    var meta = el('div', 'speaker-card__meta');
+    meta.appendChild(text('div', 'speaker-card__name', person.name));
     var roleLine = [person.jobTitle, person.company].filter(Boolean).join(', ');
-    card.appendChild(text('div', 'speaker-card__role', roleLine));
+    meta.appendChild(text('div', 'speaker-card__role', roleLine));
+    card.appendChild(meta);
     makeClickableForModal(card, person);
     return card;
   }
