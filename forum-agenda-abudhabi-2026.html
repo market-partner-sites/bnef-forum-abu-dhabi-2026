@@ -39,44 +39,49 @@
 
   .footer-col a:hover { text-decoration: underline; }
 
-  /* Sub-nav tabs */
-  .subnav-tab { color: rgba(255,255,255,0.72); font-size: 15px; font-weight: 600; padding: 20px 0; border-bottom: 3px solid transparent; }
-  .subnav-tab.active { color: #ffffff; border-bottom-color: #ffffff; }
-  .subnav-tab:hover { color: #ffffff; }
+  /* Hero */
+  .hero-eyebrow { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: #66b4a1; margin-bottom: 18px; }
+  .hero-title { margin: 0; line-height: 1.08; font-size: 52px; font-family: "Avenir Next P for BBG", "Avenir Next", Avenir, -apple-system, "system-ui", "Segoe UI", Helvetica, Arial, sans-serif; }
+  .hero-title .line-bold { display: block; font-weight: 700; }
+  .hero-title .line-light { display: block; font-weight: 400; }
 
-  /* Agenda timeline */
-  .agenda-row { display: grid; grid-template-columns: 130px 1fr; border: 1px solid #eceef1; border-radius: 12px; overflow: hidden; margin-bottom: 14px; }
-  .agenda-time { background: var(--accent); color: #ffffff; font-weight: 700; font-size: 14px; display: flex; align-items: flex-start; justify-content: center; padding: 20px 10px; text-align: center; }
-  .agenda-row.is-break .agenda-time { background: #6b7280; }
-  .agenda-body { padding: 20px 24px; background: #ffffff; }
-  .agenda-title { font-size: 17px; font-weight: 600; margin: 0 0 8px 0; color: #12161c; }
+  /* Agenda — matches market-partner-sites.github.io/bnef-summit-london-2026 */
+  .agenda-eyebrow { font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4bae87; margin-bottom: 10px; }
+  .track-filters { display: flex; gap: 10px; flex-wrap: wrap; margin: 22px 0 6px 0; }
+  .pill-filter { border-radius: 100px; padding: 6px 14px; font-size: 12px; font-weight: 600; border: 1px solid #dcded9; background: #ffffff; color: #151a26; }
+  .pill-filter.is-active { background: #151a26; color: #ffffff; border-color: #151a26; }
+  .agenda-row { display: flex; gap: 28px; padding: 22px 0; border-top: 1px solid #dcded9; }
+  .agenda-time { flex: 0 0 96px; font-size: 16px; color: #151a26; }
+  .agenda-row__break { flex: 1 1 0%; font-size: 17px; font-weight: 600; color: #151a26; display: flex; align-items: center; }
+  .agenda-card { flex: 1 1 0%; border: 1px solid #e4e3de; border-radius: 6px; padding: 20px 24px; background: #ffffff; }
+  .agenda-tag { display: inline-block; background: #eceef1; color: #151a26; font-size: 11.5px; font-weight: 600; padding: 5px 12px; border-radius: 100px; margin-bottom: 12px; }
+  .agenda-title { font-size: 18px; font-weight: 700; margin: 0 0 10px 0; color: #151a26; }
   .agenda-desc { font-size: 14.5px; line-height: 1.65; color: #4b5563; margin: 0 0 14px 0; }
-  .agenda-mod { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #9aa4b2; margin: 4px 0 8px 0; }
+  .agenda-mod { font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6b7280; margin: 4px 0 10px 0; }
+  .speakers-label { font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6b7280; margin-bottom: 10px; }
   .speaker-chip { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-  .speaker-avatar { width: 34px; height: 34px; border-radius: 999px; background: #e6ecfb; color: var(--accent); font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .speaker-name { font-size: 14px; font-weight: 600; color: var(--accent); }
+  .speaker-avatar { width: 34px; height: 34px; border-radius: 999px; background: #e6f2ec; color: #005c41; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .speaker-name { font-size: 14px; font-weight: 700; color: #005c41; }
   .speaker-role { font-size: 13px; color: #6b7280; }
 
   /* Speaker grid */
   .speaker-card { border: 1px solid #eceef1; border-radius: 14px; padding: 20px; display: flex; align-items: center; gap: 14px; }
   .speaker-card .speaker-avatar { width: 48px; height: 48px; font-size: 16px; }
 
-  .day-pill { display: inline-block; padding: 10px 22px; border-radius: 999px; background: var(--accent); color: #ffffff; font-weight: 600; font-size: 14px; margin-bottom: 26px; }
-
   .venue-card { border: 1px solid #eceef1; border-radius: 14px; padding: 26px; background: #f7f8fa; }
 
   @media (max-width: 860px) {
     .hero-flex { flex-direction: column !important; }
+    .hero-photo { display: none !important; }
     .footer-grid { grid-template-columns: repeat(2, 1fr) !important; }
     .desktop-nav { display: none !important; }
     .desktop-actions { display: none !important; }
     .mobile-controls { display: flex !important; }
     .util-bar { display: none !important; }
-    .hero-title { font-size: 34px !important; }
-    .hero-photo { display: none !important; }
+    .hero-title { font-size: 32px !important; }
     .container-1248 { padding-left: 16px !important; padding-right: 16px !important; }
-    .agenda-row { grid-template-columns: 1fr !important; }
-    .agenda-time { justify-content: flex-start !important; padding: 12px 16px !important; }
+    .agenda-row { flex-direction: column !important; gap: 6px !important; }
+    .agenda-time { font-weight: 600 !important; }
     .theme-flex { flex-direction: column !important; }
   }
 </style>
@@ -233,29 +238,19 @@
     </div>
   </div>
 
-  <!-- Sub-nav tabs -->
-  <div style="width: 100%; background: var(--accent);">
-    <div class="container-1248" style="max-width: 1248px; margin: 0 auto; padding: 0 30px; display: flex; gap: 34px;">
-      <a href="#agenda" class="subnav-tab active">Agenda</a>
-      <a href="#speakers" class="subnav-tab">Speakers</a>
-      <a href="#venue" class="subnav-tab">Venue</a>
-    </div>
-  </div>
-
   <!-- Hero -->
   <div style="width: 100%; background: #ffffff;">
     <div class="hero-flex container-1248" style="max-width: 1248px; margin: 0 auto; padding: 56px 30px 40px; display: flex; align-items: center; gap: 56px;">
       <div style="flex: 1 1 55%;">
-        <a href="https://market-partner-sites.github.io/bnef-events-page/#event-listings" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #6b7280; margin-bottom: 24px;">
+        <a href="https://market-partner-sites.github.io/bnef-events-page/#event-listings" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #6b7280; margin-bottom: 26px;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
           All events
         </a>
-        <div style="font-size: 14px; font-weight: 600; letter-spacing: 0.1em; color: #12161c; margin-bottom: 22px;">BLOOMBERGNEF FORUM &nbsp;|&nbsp; AGENDA</div>
-        <h1 class="hero-title" style="font-size: 48px; font-weight: 600; line-height: 1.12; margin: 0 0 24px 0; color: #12161c;">Abu Dhabi</h1>
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; color: #384250; margin-bottom: 24px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-          October 12, 2026 &nbsp;·&nbsp; Al Bateen Marina, Abu Dhabi
-        </div>
+        <div class="hero-eyebrow">OCTOBER 12, 2026</div>
+        <h1 class="hero-title">
+          <span class="line-bold">BloombergNEF Forum</span>
+          <span class="line-light">Abu Dhabi</span>
+        </h1>
       </div>
       <div class="hero-photo" style="flex: 1 1 40%; position: relative; border-radius: 16px; overflow: hidden; min-height: 320px;">
         <img src="images/hero-abudhabi.jpg" alt="Stacked oil barrels" style="width: 100%; height: 100%; min-height: 320px; object-fit: cover; display: block;">
@@ -283,106 +278,21 @@
   <!-- Agenda -->
   <div id="agenda" style="width: 100%; background: #f7f8fa; border-top: 1px solid #eceef1; padding: 56px 0 64px; scroll-margin-top: 20px;">
     <div class="container-1248" style="max-width: 1248px; margin: 0 auto; padding: 0 30px;">
-      <h2 style="font-size: 26px; font-weight: 600; margin: 0 0 26px 0;">2026 Agenda</h2>
-      <span class="day-pill">October 12</span>
+      <div class="agenda-eyebrow">1 Day Event</div>
+      <h2 style="font-size: 32px; font-weight: 700; margin: 0 0 4px 0; color: #151a26;">Agenda</h2>
+      <div style="font-size: 15px; color: #6b7280;">October 12, 2026</div>
 
-      <div class="agenda-row is-break">
-        <div class="agenda-time">11:30 AM</div>
-        <div class="agenda-body"><div class="agenda-title" style="margin:0;">Registration &amp; Networking Lunch</div></div>
+      <div class="track-filters" id="track-filters">
+        <!-- populated by the agenda script near the end of this file, built
+             from the tags on the live sessions themselves -->
       </div>
 
-      <div class="agenda-row">
-        <div class="agenda-time">12:35 PM</div>
-        <div class="agenda-body">
-          <div class="agenda-title">Welcome and Opening Talk</div>
-          <div class="speaker-chip"><div class="speaker-avatar">AS</div><div><div class="speaker-name">Ashish Sethia</div><div class="speaker-role">Managing Director, Commodities Research &amp; Product Strategy, BloombergNEF</div></div></div>
-        </div>
-      </div>
+      <p id="agenda-status" style="font-size: 14px; color: #6b7280; margin: 6px 0 0 0;">Loading agenda…</p>
 
-      <div class="agenda-row">
-        <div class="agenda-time">12:50 PM</div>
-        <div class="agenda-body">
-          <div class="agenda-title">Bloomberg Economics Talk: Oil and the World Economy: A View from the Middle East</div>
-          <div class="speaker-chip"><div class="speaker-avatar">ZD</div><div><div class="speaker-name">Ziad Daoud</div><div class="speaker-role">Chief Emerging Markets Economist, Bloomberg</div></div></div>
-        </div>
+      <div class="agenda-list" id="agenda-list">
+        <!-- populated by the agenda script near the end of this file, from
+             the live agenda API (or its same-origin snapshot fallback) -->
       </div>
-
-      <div class="agenda-row">
-        <div class="agenda-time">1:05 PM</div>
-        <div class="agenda-body">
-          <div class="agenda-title">Executive Dialogue</div>
-          <div class="speaker-chip"><div class="speaker-avatar">SY</div><div><div class="speaker-name">Salih Yilmaz</div><div class="speaker-role">Senior Energy Analyst, Bloomberg Intelligence</div></div></div>
-          <div class="speaker-chip"><div class="speaker-avatar">SC</div><div><div class="speaker-name">Steve Ciobo</div><div class="speaker-role">Managing Director, Stonepeak</div></div></div>
-        </div>
-      </div>
-
-      <div class="agenda-row">
-        <div class="agenda-time">1:25 PM</div>
-        <div class="agenda-body">
-          <div class="agenda-title">BNEF Talk: Powering the AI Future in the Middle East</div>
-          <div class="speaker-chip"><div class="speaker-avatar">AA</div><div><div class="speaker-name">Abdullah Alkattan</div><div class="speaker-role">Analyst, Middle East Energy Transition, BloombergNEF</div></div></div>
-        </div>
-      </div>
-
-      <div class="agenda-row">
-        <div class="agenda-time">1:40 PM</div>
-        <div class="agenda-body">
-          <div class="agenda-title">Panel: Building Infrastructure to Power Data Centers in the Middle East</div>
-          <p class="agenda-desc">Saudi Arabia and the UAE are emerging as premier locations for next-generation AI "superclusters," combining cheap energy, land available for development, and fast delivery. This session examines what it will take to build scalable digital infrastructure. It discusses how utilities are evolving grid and fuel strategies, what power and cooling solutions are most in need, and how developers are thinking through resiliency amidst uncertainties.</p>
-          <div class="speaker-chip"><div class="speaker-avatar">AS</div><div><div class="speaker-name">Ashish Sethia</div><div class="speaker-role">Managing Director, Commodities Research &amp; Product Strategy, BloombergNEF</div></div></div>
-          <div class="speaker-chip"><div class="speaker-avatar">YR</div><div><div class="speaker-name">Yasmine Rifai</div><div class="speaker-role">CTO, Microsoft Kuwait</div></div></div>
-          <div class="speaker-chip"><div class="speaker-avatar">IA</div><div><div class="speaker-name">Ibraheem Almansouri</div><div class="speaker-role">Senior Director, Engineering, Masdar</div></div></div>
-        </div>
-      </div>
-
-      <div class="agenda-row is-break">
-        <div class="agenda-time">2:20 PM</div>
-        <div class="agenda-body"><div class="agenda-title" style="margin:0;">Networking Break</div></div>
-      </div>
-
-      <div class="agenda-row">
-        <div class="agenda-time">2:50 PM</div>
-        <div class="agenda-body">
-          <div class="agenda-title">Panel: Financing the Middle East's Energy Transition</div>
-          <p class="agenda-desc">Markets in the Gulf region are pairing low cost renewables with big ambitions in hydrogen, green industrial clusters and data centers. Meanwhile, fossil fuel financing needs are rising as the region rebuilds and rewires infrastructure. This panel brings lenders and investors together to discuss the opportunities and risks in capitalizing both sides of the energy transition. How are banks and investors assessing risks of energy projects? What kind of credit support is needed? And how to establish an ecosystem to attract local as well as foreign capital for the region's transition?</p>
-          <div class="speaker-chip"><div class="speaker-avatar">JL</div><div><div class="speaker-name">Jonathan Luan</div><div class="speaker-role">Head of Finance and Investment Research, BloombergNEF</div></div></div>
-          <div class="speaker-chip"><div class="speaker-avatar">VB</div><div><div class="speaker-name">Vijay Bains</div><div class="speaker-role">Chief Sustainability Officer and Group Head ESG, Emirates NBD Bank, Dubai</div></div></div>
-          <div class="speaker-chip"><div class="speaker-avatar">EO</div><div><div class="speaker-name">Eduardo Ortiz Gross</div><div class="speaker-role">Head of Corporate &amp; Investment Banking for the Middle East and North Africa, BBVA</div></div></div>
-        </div>
-      </div>
-
-      <div class="agenda-row">
-        <div class="agenda-time">3:30 PM</div>
-        <div class="agenda-body">
-          <div class="agenda-title">BNEF Talk: Inside China's Energy Shift: New Opportunities Beyond the Barrel</div>
-          <p class="agenda-desc">China is undergoing one of the fastest and largest energy transitions in the world. This shift has taken new urgency amid heightened geopolitical volatility. Given China's evolving energy mix, how will the country shift in the next five years? What are the strategic and security considerations behind China's strategy? More importantly for Middle Eastern stakeholders navigating a disrupted energy market, how does this shift open fresh opportunities beyond hydrocarbons?</p>
-          <div class="speaker-chip"><div class="speaker-avatar">ST</div><div><div class="speaker-name">Sisi Tang</div><div class="speaker-role">Manager, China Research, BloombergNEF</div></div></div>
-        </div>
-      </div>
-
-      <div class="agenda-row">
-        <div class="agenda-time">3:40 PM</div>
-        <div class="agenda-body">
-          <div class="agenda-title">Panel: Middle East – China Energy Corridor: Rewiring the Future</div>
-          <p class="agenda-desc">The Middle East and China are accelerating a new phase of energy cooperation, shifting from project-level partnerships to deep industrial integration. As geopolitics reshape the energy markets and supply chains, the need to develop resilient energy systems has never been stronger. Where will the next wave of opportunities lie, across clean energy and fossil fuels? How will China's manufacturing scale and the Middle East's capital and demand strength converge? Where should investors, policymakers and developers focus next?</p>
-          <div class="agenda-mod">Moderator</div>
-          <div class="speaker-chip"><div class="speaker-avatar">ST</div><div><div class="speaker-name">Sisi Tang</div><div class="speaker-role">Manager, China Research, BloombergNEF</div></div></div>
-        </div>
-      </div>
-
-      <div class="agenda-row">
-        <div class="agenda-time">4:20 PM</div>
-        <div class="agenda-body">
-          <div class="agenda-title">Closing Remarks</div>
-          <div class="speaker-chip"><div class="speaker-avatar">AS</div><div><div class="speaker-name">Ashish Sethia</div><div class="speaker-role">Managing Director, Commodities Research &amp; Product Strategy, BloombergNEF</div></div></div>
-        </div>
-      </div>
-
-      <div class="agenda-row is-break" style="margin-bottom: 0;">
-        <div class="agenda-time">4:30 PM</div>
-        <div class="agenda-body"><div class="agenda-title" style="margin:0;">Networking Reception</div></div>
-      </div>
-
     </div>
   </div>
 
@@ -390,19 +300,11 @@
   <div id="speakers" style="width: 100%; background: #ffffff; padding: 56px 0 64px; scroll-margin-top: 20px;">
     <div class="container-1248" style="max-width: 1248px; margin: 0 auto; padding: 0 30px;">
       <h2 style="font-size: 26px; font-weight: 600; margin: 0 0 8px 0;">Speakers</h2>
-      <p style="font-size: 15px; color: #6b7280; margin: 0 0 30px 0; max-width: 640px;">BloombergNEF Forum speakers include influential leaders across energy, finance, technology and government shaping the region's energy transition.</p>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
-        <div class="speaker-card"><div class="speaker-avatar">AS</div><div><div class="speaker-name" style="font-size:15px;">Ashish Sethia</div><div class="speaker-role">Managing Director, Commodities Research &amp; Product Strategy, BloombergNEF</div></div></div>
-        <div class="speaker-card"><div class="speaker-avatar">ZD</div><div><div class="speaker-name" style="font-size:15px;">Ziad Daoud</div><div class="speaker-role">Chief Emerging Markets Economist, Bloomberg</div></div></div>
-        <div class="speaker-card"><div class="speaker-avatar">SY</div><div><div class="speaker-name" style="font-size:15px;">Salih Yilmaz</div><div class="speaker-role">Senior Energy Analyst, Bloomberg Intelligence</div></div></div>
-        <div class="speaker-card"><div class="speaker-avatar">SC</div><div><div class="speaker-name" style="font-size:15px;">Steve Ciobo</div><div class="speaker-role">Managing Director, Stonepeak</div></div></div>
-        <div class="speaker-card"><div class="speaker-avatar">AA</div><div><div class="speaker-name" style="font-size:15px;">Abdullah Alkattan</div><div class="speaker-role">Analyst, Middle East Energy Transition, BloombergNEF</div></div></div>
-        <div class="speaker-card"><div class="speaker-avatar">YR</div><div><div class="speaker-name" style="font-size:15px;">Yasmine Rifai</div><div class="speaker-role">CTO, Microsoft Kuwait</div></div></div>
-        <div class="speaker-card"><div class="speaker-avatar">IA</div><div><div class="speaker-name" style="font-size:15px;">Ibraheem Almansouri</div><div class="speaker-role">Senior Director, Engineering, Masdar</div></div></div>
-        <div class="speaker-card"><div class="speaker-avatar">JL</div><div><div class="speaker-name" style="font-size:15px;">Jonathan Luan</div><div class="speaker-role">Head of Finance and Investment Research, BloombergNEF</div></div></div>
-        <div class="speaker-card"><div class="speaker-avatar">VB</div><div><div class="speaker-name" style="font-size:15px;">Vijay Bains</div><div class="speaker-role">Chief Sustainability Officer and Group Head ESG, Emirates NBD Bank, Dubai</div></div></div>
-        <div class="speaker-card"><div class="speaker-avatar">EO</div><div><div class="speaker-name" style="font-size:15px;">Eduardo Ortiz Gross</div><div class="speaker-role">Head of Corporate &amp; Investment Banking for the Middle East and North Africa, BBVA</div></div></div>
-        <div class="speaker-card"><div class="speaker-avatar">ST</div><div><div class="speaker-name" style="font-size:15px;">Sisi Tang</div><div class="speaker-role">Manager, China Research, BloombergNEF</div></div></div>
+      <p style="font-size: 15px; color: #6b7280; margin: 0 0 12px 0; max-width: 640px;">BloombergNEF Forum speakers include influential leaders across energy, finance, technology and government shaping the region's energy transition.</p>
+      <p id="speakers-status" style="font-size: 14px; color: #6b7280; margin: 0 0 18px 0;">Loading speakers…</p>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;" id="speakers-grid">
+        <!-- populated by the agenda script near the end of this file, from
+             the live speakers API (or its same-origin snapshot fallback) -->
       </div>
     </div>
   </div>
@@ -547,20 +449,320 @@
   });
 
   ddBackdrop.addEventListener('click', closeAllDropdowns);
+</script>
 
-  // Sub-nav active tab tracking
-  var subnavTabs = document.querySelectorAll('.subnav-tab');
-  var sections = ['agenda', 'speakers', 'venue'].map(function(id){ return document.getElementById(id); });
-  window.addEventListener('scroll', function () {
-    var pos = window.scrollY + 140;
-    var activeId = 'agenda';
-    sections.forEach(function (sec) {
-      if (sec && sec.offsetTop <= pos) activeId = sec.id;
+<script>
+/* Agenda + Speakers — rendered live from the event APIs, using the same
+   fetch-with-fallback pattern as the BNEF Summit London site (see that
+   repo's assets/js/agenda.js for the fuller reference this was adapted
+   from). No build step, no dependencies — plain fetch() + DOM.
+
+   Data sources:
+     Agenda:         GET /api/clients/bnef_forums/events/abu_dhabi_2026/agendas
+     Speakers:       GET /api/clients/bnef_forums/events/abu_dhabi_2026/registrations?categoryType=Speaker
+     Relationships:  GET /api/clients/bnef_forums/events/abu_dhabi_2026/content-relationships
+
+   The agendas API has no per-session speaker field by itself — the join
+   lives in content-relationships: each row links a `left` content item to
+   a `right` one. The rows that matter here have left.type === "Session"
+   and right.type === "Speaker" (right.contentId matches a registration's
+   own `id` from the speakers API). Each such row's right.categoryId gives
+   the person's role on that session — "speaker", "moderator" or
+   "presentations".
+
+   IMPORTANT — CORS: all three endpoints only send CORS headers allowing
+   bbgevent.app itself to read them, so a fetch from any other origin
+   (GitHub Pages, this file opened locally) fails with a network error.
+   To work around that, this file tries the live API first, and falls
+   back to a same-origin JSON snapshot at data/agenda.json,
+   data/speakers.json and data/relationships.json. Those three files are
+   kept fresh by .github/workflows/refresh-data.yml, a scheduled GitHub
+   Action that fetches the live APIs server-side (no CORS there) every
+   ~15 minutes and commits the results back into the repo. So once this
+   is pushed with Actions enabled, the site always shows real data that's
+   at most ~15 minutes stale — no invented session content, no fabricated
+   times or descriptions, only what the API actually returns. */
+
+(function () {
+
+  var AGENDA_API = 'https://bbgevent.app/api/clients/bnef_forums/events/abu_dhabi_2026/agendas';
+  var SPEAKERS_API = 'https://bbgevent.app/api/clients/bnef_forums/events/abu_dhabi_2026/registrations?categoryType=Speaker';
+  var RELATIONSHIPS_API = 'https://bbgevent.app/api/clients/bnef_forums/events/abu_dhabi_2026/content-relationships';
+
+  var ROLE_ORDER = ['speaker', 'moderator', 'presentations'];
+  var ROLE_LABEL = { speaker: 'Speakers', moderator: 'Moderator', presentations: 'Presentations' };
+
+  /* -------- small helpers -------- */
+
+  function el(tag, className) {
+    var node = document.createElement(tag);
+    if (className) node.className = className;
+    return node;
+  }
+
+  function text(tag, className, str) {
+    var node = el(tag, className);
+    node.textContent = str;
+    return node;
+  }
+
+  // "2026-10-12T12:35:00.000" -> "12:35 PM". Reads the clock time straight
+  // out of the string instead of going through Date/timezone conversion,
+  // since localStart is already the event's own wall-clock time.
+  function fmtTime(iso) {
+    var m = /T(\d{2}):(\d{2})/.exec(iso || '');
+    if (!m) return '';
+    var hour = parseInt(m[1], 10);
+    var mins = m[2];
+    var ampm = hour >= 12 ? 'PM' : 'AM';
+    hour = hour % 12;
+    if (hour === 0) hour = 12;
+    return hour + ':' + mins + ' ' + ampm;
+  }
+
+  function isBreakLike(session) {
+    var tags = session.tags || [];
+    return tags.indexOf('label:Networking') !== -1 || tags.indexOf('sessionType:break') !== -1;
+  }
+
+  // A session's first "label:X" tag becomes both its badge text and its
+  // filter-pill slug — e.g. "label:Main stage" -> badge "Main stage",
+  // filter slug "main-stage". No such tag -> a generic "Session" badge
+  // with no filter slug (only ever hidden by "All sessions" itself).
+  function sessionLabel(session) {
+    var tags = session.tags || [];
+    for (var i = 0; i < tags.length; i++) {
+      if (tags[i].indexOf('label:') === 0) return tags[i].slice(6);
+    }
+    return '';
+  }
+
+  function slugify(str) {
+    return str.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  }
+
+  function personFromRegistration(reg) {
+    var p = (reg && reg.profile) || {};
+    return {
+      name: [p.first_name, p.last_name].filter(Boolean).join(' '),
+      company: p.company || '',
+      jobTitle: p.job_title || ''
+    };
+  }
+
+  function initials(name) {
+    var parts = (name || '').trim().split(/\s+/).filter(Boolean);
+    if (!parts.length) return '';
+    var first = parts[0].charAt(0);
+    var last = parts.length > 1 ? parts[parts.length - 1].charAt(0) : '';
+    return (first + last).toUpperCase();
+  }
+
+  /* -------- building the session -> credited people index -------- */
+
+  // registrationIndex: id -> registration record (from the speakers API)
+  // relationships: raw array from content-relationships
+  // Returns: sessionId -> { speaker: [person], moderator: [person], presentations: [person] }
+  function buildCreditsIndex(relationships, registrationIndex) {
+    var index = {};
+    (relationships || []).forEach(function (rel) {
+      var left = rel.left, right = rel.right;
+      if (!left || !right) return;
+      if (left.type !== 'Session' || right.type !== 'Speaker') return;
+      var reg = registrationIndex[right.contentId];
+      if (!reg) return; // e.g. a hidden/unpublished profile
+      var role = right.categoryId && ROLE_ORDER.indexOf(right.categoryId) !== -1 ? right.categoryId : 'speaker';
+      var bucket = index[left.contentId] || (index[left.contentId] = { speaker: [], moderator: [], presentations: [] });
+      bucket[role].push({ order: right.order || 0, person: personFromRegistration(reg) });
     });
-    subnavTabs.forEach(function (tab) {
-      tab.classList.toggle('active', tab.getAttribute('href') === '#' + activeId);
+    Object.keys(index).forEach(function (sessionId) {
+      ROLE_ORDER.forEach(function (role) {
+        index[sessionId][role].sort(function (a, b) { return a.order - b.order; }).forEach(function (x, i, arr) { arr[i] = x.person; });
+      });
     });
+    return index;
+  }
+
+  // One .speaker-chip per credited person, matching the page's existing
+  // markup (small initials avatar + name + role/company line).
+  function buildSpeakerChip(person) {
+    var chip = el('div', 'speaker-chip');
+    chip.appendChild(text('div', 'speaker-avatar', initials(person.name)));
+    var info = el('div');
+    info.appendChild(text('div', 'speaker-name', person.name));
+    var roleLine = [person.jobTitle, person.company].filter(Boolean).join(', ');
+    if (roleLine) info.appendChild(text('div', 'speaker-role', roleLine));
+    chip.appendChild(info);
+    return chip;
+  }
+
+  function appendCredits(card, sessionId, creditsIndex) {
+    var group = creditsIndex[sessionId];
+    if (!group) return;
+    ROLE_ORDER.forEach(function (role) {
+      if (!group[role].length) return;
+      card.appendChild(text('div', role === 'moderator' ? 'agenda-mod' : 'speakers-label', ROLE_LABEL[role]));
+      group[role].forEach(function (person) { card.appendChild(buildSpeakerChip(person)); });
+    });
+  }
+
+  /* -------- agenda rendering -------- */
+
+  function buildAgendaRow(session, creditsIndex) {
+    var row = el('div', 'agenda-row');
+
+    if (isBreakLike(session)) {
+      row.appendChild(text('div', 'agenda-time', fmtTime(session.localStart)));
+      row.appendChild(text('div', 'agenda-row__break', (session.name || '').trim()));
+      return row;
+    }
+
+    var label = sessionLabel(session);
+    if (label) row.setAttribute('data-track', slugify(label));
+
+    row.appendChild(text('div', 'agenda-time', fmtTime(session.localStart)));
+
+    var card = el('div', 'agenda-card');
+    card.appendChild(text('span', 'agenda-tag', label || 'Session'));
+    card.appendChild(text('div', 'agenda-title', (session.name || '').trim()));
+    var synopsis = (session.synopsisMd || '').trim();
+    if (synopsis) card.appendChild(text('p', 'agenda-desc', synopsis));
+    appendCredits(card, session.id, creditsIndex);
+    row.appendChild(card);
+    return row;
+  }
+
+  function renderAgenda(agenda, creditsIndex) {
+    var items = (agenda.items || []).filter(function (i) { return i.type === 'Session'; });
+    items = items.slice().sort(function (a, b) {
+      var as = a.localStart || '', bs = b.localStart || '';
+      return as < bs ? -1 : as > bs ? 1 : 0;
+    });
+
+    var list = document.getElementById('agenda-list');
+    list.innerHTML = '';
+    var labelsSeen = [];
+    items.forEach(function (session) {
+      if (!isBreakLike(session)) {
+        var label = sessionLabel(session);
+        if (label && labelsSeen.indexOf(label) === -1) labelsSeen.push(label);
+      }
+      list.appendChild(buildAgendaRow(session, creditsIndex));
+    });
+
+    renderFilters(labelsSeen);
+  }
+
+  function renderFilters(labels) {
+    var wrap = document.getElementById('track-filters');
+    wrap.innerHTML = '';
+    var allBtn = text('button', 'pill-filter is-active', 'All sessions');
+    allBtn.type = 'button';
+    allBtn.setAttribute('data-filter', 'all');
+    wrap.appendChild(allBtn);
+    labels.forEach(function (label) {
+      var btn = text('button', 'pill-filter', label);
+      btn.type = 'button';
+      btn.setAttribute('data-filter', slugify(label));
+      wrap.appendChild(btn);
+    });
+    wireFilters();
+  }
+
+  function wireFilters() {
+    document.querySelectorAll('.pill-filter').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.pill-filter').forEach(function (b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+        var filter = btn.getAttribute('data-filter');
+        document.querySelectorAll('.agenda-row').forEach(function (row) {
+          var track = row.getAttribute('data-track');
+          row.style.display = (filter === 'all' || !track || track === filter) ? '' : 'none';
+        });
+      });
+    });
+  }
+
+  /* -------- speakers directory -------- */
+
+  function buildSpeakerCard(reg) {
+    var person = personFromRegistration(reg);
+    var card = el('div', 'speaker-card');
+    card.appendChild(text('div', 'speaker-avatar', initials(person.name)));
+    var info = el('div');
+    var nameEl = text('div', 'speaker-name', person.name);
+    nameEl.style.fontSize = '15px';
+    info.appendChild(nameEl);
+    var roleLine = [person.jobTitle, person.company].filter(Boolean).join(', ');
+    info.appendChild(text('div', 'speaker-role', roleLine));
+    card.appendChild(info);
+    return card;
+  }
+
+  function renderSpeakers(registrations) {
+    var grid = document.getElementById('speakers-grid');
+    grid.innerHTML = '';
+    registrations
+      .filter(function (r) { return r.profile && r.profile.profile_visible !== false; })
+      .sort(function (a, b) { return (a.order || 0) - (b.order || 0); })
+      .forEach(function (reg) { grid.appendChild(buildSpeakerCard(reg)); });
+  }
+
+  /* -------- boot -------- */
+
+  function fetchJson(url) {
+    return fetch(url).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' from ' + url);
+      return r.json();
+    });
+  }
+
+  // Try the live API first; if it fails (cross-origin CORS block, network
+  // error, etc.) fall back to the same-origin snapshot that
+  // .github/workflows/refresh-data.yml keeps up to date.
+  function fetchWithFallback(liveUrl, snapshotPath) {
+    return fetchJson(liveUrl).catch(function (err) {
+      console.warn('Live fetch failed for ' + liveUrl + ', falling back to bundled snapshot (' + snapshotPath + '): ' + err.message);
+      return fetchJson(snapshotPath);
+    });
+  }
+
+  var agendaStatus = document.getElementById('agenda-status');
+  var speakersStatus = document.getElementById('speakers-status');
+
+  Promise.all([
+    fetchWithFallback(AGENDA_API, 'data/agenda.json'),
+    fetchWithFallback(SPEAKERS_API, 'data/speakers.json'),
+    fetchWithFallback(RELATIONSHIPS_API, 'data/relationships.json').catch(function (err) {
+      // Non-fatal: agenda still renders without speaker credits.
+      console.warn('content-relationships unavailable (live and snapshot), agenda will render without speaker credits:', err);
+      return [];
+    })
+  ]).then(function (results) {
+    var agendaList = results[0];
+    var registrations = results[1];
+    var relationships = results[2];
+
+    var agenda = agendaList[0];
+    if (!agenda) throw new Error('empty agenda list');
+
+    var registrationIndex = {};
+    registrations.forEach(function (r) { registrationIndex[r.id] = r; });
+
+    var creditsIndex = buildCreditsIndex(relationships, registrationIndex);
+
+    renderAgenda(agenda, creditsIndex);
+    if (agendaStatus) agendaStatus.remove();
+
+    renderSpeakers(registrations);
+    if (speakersStatus) speakersStatus.remove();
+  }).catch(function (err) {
+    var msg = 'Couldn’t load live agenda data (' + err.message + ').';
+    if (agendaStatus) agendaStatus.textContent = msg;
+    if (speakersStatus) speakersStatus.textContent = msg;
   });
+
+})();
 </script>
 </body>
 </html>
