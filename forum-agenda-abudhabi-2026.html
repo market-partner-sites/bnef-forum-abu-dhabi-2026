@@ -42,7 +42,7 @@
   /* Hero */
   .hero-eyebrow { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: #66b4a1; margin-bottom: 18px; }
   .hero-title { margin: 0; line-height: 1.08; font-size: 52px; font-family: "Avenir Next P for BBG", "Avenir Next", Avenir, -apple-system, "system-ui", "Segoe UI", Helvetica, Arial, sans-serif; }
-  .hero-title .line-bold { display: block; font-weight: 700; }
+  .hero-title .line-bold { display: block; font-weight: 600; }
   .hero-title .line-light { display: block; font-weight: 400; }
 
   /* Agenda — matches market-partner-sites.github.io/bnef-summit-london-2026 */
@@ -57,16 +57,43 @@
   .agenda-tag { display: inline-block; background: #eceef1; color: #151a26; font-size: 11.5px; font-weight: 600; padding: 5px 12px; border-radius: 100px; margin-bottom: 12px; }
   .agenda-title { font-size: 18px; font-weight: 700; margin: 0 0 10px 0; color: #151a26; }
   .agenda-desc { font-size: 14.5px; line-height: 1.65; color: #4b5563; margin: 0 0 14px 0; }
+  .agenda-desc.clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
   .agenda-mod { font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6b7280; margin: 4px 0 10px 0; }
   .speakers-label { font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6b7280; margin-bottom: 10px; }
   .speaker-chip { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-  .speaker-avatar { width: 34px; height: 34px; border-radius: 999px; background: #e6f2ec; color: #005c41; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .speaker-avatar { width: 34px; height: 34px; border-radius: 999px; background: #e6f2ec; color: #005c41; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; object-fit: cover; }
   .speaker-name { font-size: 14px; font-weight: 700; color: #005c41; }
   .speaker-role { font-size: 13px; color: #6b7280; }
 
-  /* Speaker grid */
-  .speaker-card { border: 1px solid #eceef1; border-radius: 14px; padding: 20px; display: flex; align-items: center; gap: 14px; }
-  .speaker-card .speaker-avatar { width: 48px; height: 48px; font-size: 16px; }
+  /* Speaker credits/cards that open the bio modal on click */
+  .is-clickable { cursor: pointer; border-radius: 8px; }
+  .is-clickable:hover .speaker-name,
+  .is-clickable:hover .speaker-card__name { color: #151a26; text-decoration: underline; }
+  .is-clickable:hover .speaker-avatar,
+  .is-clickable:hover .speaker-card__avatar { opacity: 0.9; }
+  .is-clickable:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+  /* Speakers grid — matches market-partner-sites.github.io/bnef-summit-london-2026#speakers */
+  .speaker-card { display: flex; flex-direction: column; gap: 12px; }
+  .speaker-card__avatar { width: 100%; aspect-ratio: 1; border-radius: 14px; object-fit: cover; background: #e6f2ec; display: block; }
+  .speaker-card__avatar.is-initials { display: flex; align-items: center; justify-content: center; color: #005c41; font-size: 42px; font-weight: 700; }
+  .speaker-card__name { font-size: 15px; font-weight: 600; color: #151a26; }
+  .speaker-card__role { font-size: 12.5px; color: #6b7280; }
+
+  /* Speaker bio modal */
+  body.modal-open { overflow: hidden; }
+  .speaker-modal { position: fixed; inset: 0; z-index: 100; display: none; align-items: flex-start; justify-content: center; padding: 48px 20px; overflow-y: auto; }
+  .speaker-modal.is-open { display: flex; }
+  .speaker-modal__backdrop { position: fixed; inset: 0; background: rgba(10,16,28,0.6); }
+  .speaker-modal__dialog { position: relative; z-index: 1; background: #ffffff; border-radius: 14px; padding: 40px; max-width: 480px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.18); display: flex; flex-direction: column; gap: 4px; }
+  .speaker-modal__close { position: absolute; top: 16px; right: 16px; width: 32px; height: 32px; border-radius: 50%; border: none; background: #f2f3f5; color: #6b7280; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 16px; line-height: 1; }
+  .speaker-modal__close:hover { background: #e4e3de; color: #151a26; }
+  .speaker-modal__photo { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; background: #e6f2ec; margin-bottom: 16px; }
+  .speaker-modal__name { font-size: 22px; font-weight: 700; color: #151a26; }
+  .speaker-modal__role { font-size: 14px; color: #6b7280; margin-bottom: 18px; }
+  .speaker-modal__bio { font-size: 14.5px; line-height: 1.7; color: #4b5563; }
+  .speaker-modal__bio p { margin: 0 0 14px; }
+  .speaker-modal__bio p:last-child { margin-bottom: 0; }
 
   .venue-card { border: 1px solid #eceef1; border-radius: 14px; padding: 26px; background: #f7f8fa; }
 
@@ -83,6 +110,9 @@
     .agenda-row { flex-direction: column !important; gap: 6px !important; }
     .agenda-time { font-weight: 600 !important; }
     .theme-flex { flex-direction: column !important; }
+    #speakers-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 18px !important; }
+    .speaker-modal { padding: 24px 16px !important; }
+    .speaker-modal__dialog { padding: 28px 24px !important; }
   }
 </style>
 </head>
@@ -302,7 +332,7 @@
       <h2 style="font-size: 26px; font-weight: 600; margin: 0 0 8px 0;">Speakers</h2>
       <p style="font-size: 15px; color: #6b7280; margin: 0 0 12px 0; max-width: 640px;">BloombergNEF Forum speakers include influential leaders across energy, finance, technology and government shaping the region's energy transition.</p>
       <p id="speakers-status" style="font-size: 14px; color: #6b7280; margin: 0 0 18px 0;">Loading speakers…</p>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;" id="speakers-grid">
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px;" id="speakers-grid">
         <!-- populated by the agenda script near the end of this file, from
              the live speakers API (or its same-origin snapshot fallback) -->
       </div>
@@ -380,6 +410,20 @@
     </div>
   </div>
 
+</div>
+
+<!-- Speaker bio modal — populated by the agenda script whenever a speaker
+     photo/name/card is clicked anywhere on the page (agenda credits or the
+     Speakers grid). Matches market-partner-sites.github.io/bnef-summit-london-2026. -->
+<div class="speaker-modal" id="speaker-modal" aria-hidden="true">
+  <div class="speaker-modal__backdrop"></div>
+  <div class="speaker-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="speaker-modal-name">
+    <button type="button" class="speaker-modal__close" aria-label="Close">✕</button>
+    <img class="speaker-modal__photo" src="" alt="">
+    <div class="speaker-modal__name" id="speaker-modal-name"></div>
+    <div class="speaker-modal__role"></div>
+    <div class="speaker-modal__bio"></div>
+  </div>
 </div>
 
 <script>
@@ -546,7 +590,9 @@
     return {
       name: [p.first_name, p.last_name].filter(Boolean).join(' '),
       company: p.company || '',
-      jobTitle: p.job_title || ''
+      jobTitle: p.job_title || '',
+      photo: (p.profile_picture && p.profile_picture.absoluteUrl) || '',
+      bioHtml: (p.bio && p.bio.html) || ''
     };
   }
 
@@ -556,6 +602,101 @@
     var first = parts[0].charAt(0);
     var last = parts.length > 1 ? parts[parts.length - 1].charAt(0) : '';
     return (first + last).toUpperCase();
+  }
+
+  /* -------- speaker bio modal --------
+     One shared dialog (markup lives in the body as #speaker-modal),
+     populated and shown whenever a speaker's photo/name/row is clicked
+     anywhere on the page (agenda credits or the Speakers grid). */
+
+  var speakerModal = null;
+  var speakerModalPreviouslyFocused = null;
+
+  function getSpeakerModal() {
+    if (!speakerModal) speakerModal = document.getElementById('speaker-modal');
+    return speakerModal;
+  }
+
+  function openSpeakerModal(person) {
+    var modal = getSpeakerModal();
+    if (!modal || !person || !person.name) return;
+
+    var photoEl = modal.querySelector('.speaker-modal__photo');
+    photoEl.src = person.photo;
+    photoEl.alt = person.name;
+    photoEl.style.display = person.photo ? '' : 'none';
+    modal.querySelector('.speaker-modal__name').textContent = person.name;
+    var roleLine = [person.jobTitle, person.company].filter(Boolean).join(', ');
+    var roleEl = modal.querySelector('.speaker-modal__role');
+    roleEl.textContent = roleLine;
+    roleEl.style.display = roleLine ? '' : 'none';
+    var bioEl = modal.querySelector('.speaker-modal__bio');
+    if (person.bioHtml) {
+      bioEl.innerHTML = person.bioHtml;
+      bioEl.style.display = '';
+    } else {
+      bioEl.innerHTML = '';
+      bioEl.style.display = 'none';
+    }
+
+    speakerModalPreviouslyFocused = document.activeElement;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    var closeBtn = modal.querySelector('.speaker-modal__close');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeSpeakerModal() {
+    var modal = getSpeakerModal();
+    if (!modal || !modal.classList.contains('is-open')) return;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    if (speakerModalPreviouslyFocused && speakerModalPreviouslyFocused.focus) {
+      speakerModalPreviouslyFocused.focus();
+    }
+  }
+
+  function initSpeakerModal() {
+    var modal = getSpeakerModal();
+    if (!modal) return;
+    modal.querySelector('.speaker-modal__close').addEventListener('click', closeSpeakerModal);
+    modal.querySelector('.speaker-modal__backdrop').addEventListener('click', closeSpeakerModal);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) closeSpeakerModal();
+    });
+  }
+
+  // Wires a person row/card up to open the modal on click and Enter/Space,
+  // and makes it look and behave like an interactive control.
+  function makeClickableForModal(node, person) {
+    if (!person || !person.name) return;
+    node.classList.add('is-clickable');
+    node.setAttribute('role', 'button');
+    node.setAttribute('tabindex', '0');
+    node.addEventListener('click', function () { openSpeakerModal(person); });
+    node.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openSpeakerModal(person);
+      }
+    });
+  }
+
+  // Renders an avatar for a person, as a photo if they have one, falling
+  // back to the existing colored-initials circle otherwise. `className`
+  // is the base avatar class ('speaker-avatar' or 'speaker-card__avatar').
+  function buildAvatar(person, className) {
+    if (person.photo) {
+      var img = document.createElement('img');
+      img.className = className;
+      img.src = person.photo;
+      img.alt = '';
+      img.loading = 'lazy';
+      return img;
+    }
+    return text('div', className + ' is-initials', initials(person.name));
   }
 
   /* -------- building the session -> credited people index -------- */
@@ -583,16 +724,18 @@
     return index;
   }
 
-  // One .speaker-chip per credited person, matching the page's existing
-  // markup (small initials avatar + name + role/company line).
+  // One .speaker-chip per credited person — a photo (falling back to the
+  // colored-initials circle when there isn't one) + name + role/company —
+  // clickable to open the bio modal, matching the reference site.
   function buildSpeakerChip(person) {
     var chip = el('div', 'speaker-chip');
-    chip.appendChild(text('div', 'speaker-avatar', initials(person.name)));
+    chip.appendChild(buildAvatar(person, 'speaker-avatar'));
     var info = el('div');
     info.appendChild(text('div', 'speaker-name', person.name));
     var roleLine = [person.jobTitle, person.company].filter(Boolean).join(', ');
     if (roleLine) info.appendChild(text('div', 'speaker-role', roleLine));
     chip.appendChild(info);
+    makeClickableForModal(chip, person);
     return chip;
   }
 
@@ -620,13 +763,15 @@
     var label = sessionLabel(session);
     if (label) row.setAttribute('data-track', slugify(label));
 
-    row.appendChild(text('div', 'agenda-time', fmtTime(session.localStart)));
+    var time = el('div', 'agenda-time');
+    time.innerHTML = fmtTime(session.localStart) + (session.localEnd && session.localEnd !== session.localStart ? '<br>– ' + fmtTime(session.localEnd) : '');
+    row.appendChild(time);
 
     var card = el('div', 'agenda-card');
     card.appendChild(text('span', 'agenda-tag', label || 'Session'));
     card.appendChild(text('div', 'agenda-title', (session.name || '').trim()));
     var synopsis = (session.synopsisMd || '').trim();
-    if (synopsis) card.appendChild(text('p', 'agenda-desc', synopsis));
+    if (synopsis) card.appendChild(text('p', 'agenda-desc clamp-2', synopsis));
     appendCredits(card, session.id, creditsIndex);
     row.appendChild(card);
     return row;
@@ -688,14 +833,11 @@
   function buildSpeakerCard(reg) {
     var person = personFromRegistration(reg);
     var card = el('div', 'speaker-card');
-    card.appendChild(text('div', 'speaker-avatar', initials(person.name)));
-    var info = el('div');
-    var nameEl = text('div', 'speaker-name', person.name);
-    nameEl.style.fontSize = '15px';
-    info.appendChild(nameEl);
+    card.appendChild(buildAvatar(person, 'speaker-card__avatar'));
+    card.appendChild(text('div', 'speaker-card__name', person.name));
     var roleLine = [person.jobTitle, person.company].filter(Boolean).join(', ');
-    info.appendChild(text('div', 'speaker-role', roleLine));
-    card.appendChild(info);
+    card.appendChild(text('div', 'speaker-card__role', roleLine));
+    makeClickableForModal(card, person);
     return card;
   }
 
@@ -726,6 +868,8 @@
       return fetchJson(snapshotPath);
     });
   }
+
+  initSpeakerModal();
 
   var agendaStatus = document.getElementById('agenda-status');
   var speakersStatus = document.getElementById('speakers-status');
