@@ -112,9 +112,6 @@
   }
   select.field { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23505561' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; }
   .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-  .day-pills { display: flex; gap: 10px; }
-  .day-pills .pill { display: inline-flex; align-items: center; padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; letter-spacing: 0.02em; border: 1px solid #dcded9; background: #ffffff; color: #151a26; cursor: pointer; }
-  .day-pills .pill.is-selected { background: var(--accent); color: #ffffff; border-color: var(--accent); }
   .checkbox-row { display: flex; align-items: flex-start; gap: 10px; }
   .checkbox-row input { margin-top: 3px; }
   .checkbox-row span { font-size: 12.5px; color: #505561; line-height: 1.5; }
@@ -385,24 +382,6 @@
         </div>
 
         <form class="form-card" id="register-form">
-          <input type="hidden" id="attendance-days" name="attendance_days" value="Full Forum">
-
-          <div class="field-group">
-            <label class="field-label" for="attendance-type">How would you prefer to attend?</label>
-            <select class="field" id="attendance-type" name="attendance_type">
-              <option>In-Person Delegate</option>
-              <option>Virtual Delegate</option>
-            </select>
-          </div>
-
-          <div class="field-group">
-            <span class="field-label">Which day(s) are you interested in?</span>
-            <div class="day-pills">
-              <button type="button" class="pill is-selected" data-day-pill="Full Forum">Full forum</button>
-              <button type="button" class="pill" data-day-pill="Day 1">Day 1</button>
-            </div>
-          </div>
-
           <div class="field-row">
             <div class="field-group">
               <label class="field-label" for="reg-first-name">First name</label>
@@ -618,17 +597,6 @@
   });
 
   ddBackdrop.addEventListener('click', closeAllDropdowns);
-
-  // Registration form: day-pill selection
-  var dayPills = document.querySelectorAll('[data-day-pill]');
-  dayPills.forEach(function (pill) {
-    pill.addEventListener('click', function () {
-      dayPills.forEach(function (p) { p.classList.remove('is-selected'); });
-      pill.classList.add('is-selected');
-      var input = document.getElementById('attendance-days');
-      if (input) { input.value = pill.getAttribute('data-day-pill'); }
-    });
-  });
 
   // Registration form: stub submit — no backend wired up yet. Replace this
   // handler with a real submission (fetch to the registration/CRM endpoint)
