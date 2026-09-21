@@ -93,6 +93,36 @@
 
   .venue-card { border: 1px solid #eceef1; border-radius: 14px; padding: 26px; background: #f7f8fa; }
 
+  /* Register — matches market-partner-sites.github.io/bnef-summit-london-2026#register,
+     with our blue accent in place of Summit's green. */
+  .register-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 72px; align-items: start; }
+  .register-aside { display: flex; flex-direction: column; gap: 24px; }
+  .register-aside p { font-size: 14.5px; line-height: 1.7; color: #505561; margin: 0; }
+  .register-points { display: flex; flex-direction: column; gap: 16px; margin-top: 8px; }
+  .register-point { display: flex; align-items: flex-start; gap: 12px; }
+  .register-point svg { margin-top: 2px; flex: none; }
+  .register-point span { font-size: 13.5px; color: #505561; }
+  .form-card { border: 1px solid #e4e3de; border-radius: 14px; padding: 40px; display: flex; flex-direction: column; gap: 26px; background: #ffffff; }
+  .field-group { display: flex; flex-direction: column; gap: 10px; }
+  .field-label { font-size: 12px; font-weight: 600; color: #505561; }
+  .field, select.field, input.field {
+    height: 46px; border: 1px solid #dcded9; border-radius: 4px;
+    background: #fafafa; padding: 0 14px; font-size: 14px; color: #151a26;
+    width: 100%; font-family: inherit; box-sizing: border-box;
+  }
+  select.field { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23505561' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .day-pills { display: flex; gap: 10px; }
+  .day-pills .pill { display: inline-flex; align-items: center; padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; letter-spacing: 0.02em; border: 1px solid #dcded9; background: #ffffff; color: #151a26; cursor: pointer; }
+  .day-pills .pill.is-selected { background: var(--accent); color: #ffffff; border-color: var(--accent); }
+  .checkbox-row { display: flex; align-items: flex-start; gap: 10px; }
+  .checkbox-row input { margin-top: 3px; }
+  .checkbox-row span { font-size: 12.5px; color: #505561; line-height: 1.5; }
+  .consent { font-size: 12px; color: #8a909b; line-height: 1.6; margin: 0; }
+  .btn-block { width: 100%; justify-content: center; padding: 16px; font-size: 14px; text-align: center; box-sizing: border-box; border: none; }
+  .form-status { font-size: 13px; color: var(--accent); display: none; margin: 0; }
+  .form-status.is-visible { display: block; }
+
   @media (max-width: 860px) {
     .hero-flex { flex-direction: column !important; align-items: flex-start !important; }
     .hero-photo { display: none !important; }
@@ -104,11 +134,14 @@
     .hero-title { font-size: 35px !important; }
     .container-1248 { padding-left: 16px !important; padding-right: 16px !important; }
     .agenda-row { flex-direction: column !important; gap: 14px !important; }
-    .agenda-time { font-weight: 600 !important; }
+    .agenda-time { flex: 0 0 auto !important; font-weight: 600 !important; }
     .theme-flex { flex-direction: column !important; }
     #speakers-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 18px !important; }
     .speaker-modal { padding: 24px 16px !important; }
     .speaker-modal__dialog { padding: 28px 24px !important; }
+    .register-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+    .field-row { grid-template-columns: 1fr !important; }
+    .form-card { padding: 24px !important; }
   }
 </style>
 </head>
@@ -296,7 +329,7 @@
       <div style="flex: 1 1 35%; background: #f7f8fa; border: 1px solid #eceef1; border-radius: 16px; padding: 28px;">
         <div style="font-size: 18px; font-weight: 600; margin-bottom: 10px;">Register your interest</div>
         <p style="font-size: 14px; line-height: 1.6; color: #6b7280; margin: 0 0 20px 0;">Seats are limited for this invite-led forum. Submit your details and the BNEF events team will follow up with next steps.</p>
-        <a class="btn-primary" style="width: 100%; text-align: center;" href="https://about.bnef.com/events/forum-agenda-abudhabi-2026/">Register Interest</a>
+        <a class="btn-primary" style="width: 100%; text-align: center;" href="#register">Register Interest</a>
       </div>
     </div>
   </div>
@@ -323,6 +356,112 @@
       <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px;" id="speakers-grid">
         <!-- populated by the agenda script near the end of this file, from
              the live speakers API (or its same-origin snapshot fallback) -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Register -->
+  <div id="register" style="width: 100%; background: #ffffff; border-top: 1px solid #eceef1; padding: 64px 0; scroll-margin-top: 20px;">
+    <div class="container-1248" style="max-width: 1248px; margin: 0 auto; padding: 0 30px;">
+      <div class="register-grid">
+
+        <div class="register-aside">
+          <div class="agenda-eyebrow" style="font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0;">Registration</div>
+          <h2 style="font-size: 34px; font-weight: 600; margin: 0;">Register your interest</h2>
+          <p>Places are confirmed on a rolling basis. Tell us a little about yourself and we'll follow up with next steps.</p>
+          <div class="register-points">
+            <div class="register-point">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              <span>Reserve your place for the full forum or a single day</span>
+            </div>
+            <div class="register-point">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              <span>Full access to the agenda, speaker line-up and event updates</span>
+            </div>
+            <div class="register-point">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              <span>Questions? <a href="https://about.bnef.com/contact-us/" style="color: var(--accent);">Contact event support</a></span>
+            </div>
+          </div>
+        </div>
+
+        <form class="form-card" id="register-form">
+          <input type="hidden" id="attendance-days" name="attendance_days" value="Full Forum">
+
+          <div class="field-group">
+            <label class="field-label" for="attendance-type">How would you prefer to attend?</label>
+            <select class="field" id="attendance-type" name="attendance_type">
+              <option>In-Person Delegate</option>
+              <option>Virtual Delegate</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <span class="field-label">Which day(s) are you interested in?</span>
+            <div class="day-pills">
+              <button type="button" class="pill is-selected" data-day-pill="Full Forum">Full forum</button>
+              <button type="button" class="pill" data-day-pill="Day 1">Day 1</button>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label" for="reg-first-name">First name</label>
+              <input class="field" type="text" id="reg-first-name" name="first_name" placeholder="Enter first name" required>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="reg-last-name">Last name</label>
+              <input class="field" type="text" id="reg-last-name" name="last_name" placeholder="Enter last name" required>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="reg-email">Business email address</label>
+              <input class="field" type="email" id="reg-email" name="email" placeholder="Enter business email" required>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="reg-organisation">Organisation</label>
+              <input class="field" type="text" id="reg-organisation" name="organisation" placeholder="Enter organisation name" required>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="reg-industry">Industry</label>
+              <select class="field" id="reg-industry" name="industry">
+                <option value="">Select industry</option>
+                <option>Energy and Utilities</option>
+                <option>Finance and Investment</option>
+                <option>Technology</option>
+                <option>Heavy Industry</option>
+                <option>Transport and Automotive</option>
+                <option>Government or Regulator</option>
+                <option>Press and Media</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="reg-job-role">Job role</label>
+              <input class="field" type="text" id="reg-job-role" name="job_role" placeholder="Enter job role">
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="reg-phone">Mobile phone number</label>
+              <input class="field" type="tel" id="reg-phone" name="phone" placeholder="Enter mobile number">
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="reg-city">City</label>
+              <input class="field" type="text" id="reg-city" name="city" placeholder="Enter city">
+            </div>
+          </div>
+
+          <div class="checkbox-row">
+            <input type="checkbox" id="reg-contact-opt-in" name="contact_opt_in">
+            <label for="reg-contact-opt-in">
+              <span>Yes, I would like to be contacted by a representative to learn more about Bloomberg's solutions and services.</span>
+            </label>
+          </div>
+
+          <p class="consent">By submitting this information, I agree to the <a href="#" style="color: var(--accent);">privacy policy</a> and to learn more about products and services from Bloomberg.</p>
+
+          <button type="submit" class="btn-primary btn-block">Register interest</button>
+          <p class="form-status" id="register-status" role="status"></p>
+        </form>
+
       </div>
     </div>
   </div>
@@ -480,6 +619,30 @@
   });
 
   ddBackdrop.addEventListener('click', closeAllDropdowns);
+
+  // Registration form: day-pill selection
+  var dayPills = document.querySelectorAll('[data-day-pill]');
+  dayPills.forEach(function (pill) {
+    pill.addEventListener('click', function () {
+      dayPills.forEach(function (p) { p.classList.remove('is-selected'); });
+      pill.classList.add('is-selected');
+      var input = document.getElementById('attendance-days');
+      if (input) { input.value = pill.getAttribute('data-day-pill'); }
+    });
+  });
+
+  // Registration form: stub submit — no backend wired up yet. Replace this
+  // handler with a real submission (fetch to the registration/CRM endpoint)
+  // when this goes live; this just prevents a page reload and confirms the click.
+  var registerForm = document.getElementById('register-form');
+  var registerStatus = document.getElementById('register-status');
+  if (registerForm && registerStatus) {
+    registerForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      registerStatus.textContent = 'Thanks — this form isn’t wired up to a backend yet. Connect it to your registration system to go live.';
+      registerStatus.classList.add('is-visible');
+    });
+  }
 </script>
 
 <script>
