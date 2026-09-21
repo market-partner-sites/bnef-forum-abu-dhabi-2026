@@ -120,14 +120,19 @@
   .form-status { font-size: 13px; color: var(--accent); display: none; margin: 0; }
   .form-status.is-visible { display: block; }
 
-  @media (max-width: 860px) {
-    .hero-flex { flex-direction: column !important; align-items: flex-start !important; }
-    .hero-photo { display: none !important; }
-    .footer-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  /* Nav switches to the hamburger menu earlier than the rest of the layout
+     goes mobile — at iPad window size (1024px) and smaller. */
+  @media (max-width: 1024px) {
     .desktop-nav { display: none !important; }
     .desktop-actions { display: none !important; }
     .mobile-controls { display: flex !important; }
     .util-bar { display: none !important; }
+  }
+
+  @media (max-width: 860px) {
+    .hero-flex { flex-direction: column !important; align-items: flex-start !important; }
+    .hero-photo { display: none !important; }
+    .footer-grid { grid-template-columns: repeat(2, 1fr) !important; }
     .hero-title { font-size: 35px !important; }
     .container-1248 { padding-left: 16px !important; padding-right: 16px !important; }
     .agenda-row { flex-direction: column !important; gap: 14px !important; }
